@@ -1,6 +1,13 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteTask } from '../features/tasks/taskSlice';
 
 export default function TaskCard({ task, setTaskToUpdate }) {
+  const dispatch = useDispatch();
+  const handleDelete = (taskId) => {
+    dispatch(deleteTask(taskId));
+  };
+
   return (
     <div className="task-card">
       <h3>{task.title}</h3>
@@ -11,7 +18,7 @@ export default function TaskCard({ task, setTaskToUpdate }) {
       <button className="edit" onClick={() => setTaskToUpdate(task)}>
         Edit
       </button>
-      <button>Delete</button>
+      <button onClick={() => handleDelete(task.id)}>Delete</button>
     </div>
   );
 }

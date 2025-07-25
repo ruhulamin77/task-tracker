@@ -13,8 +13,12 @@ const taskSlice = createSlice({
       state.tasks.push({ ...action.payload, id: crypto.randomUUID() });
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
     },
+    deleteTask: (state, action) => {
+      state.tasks = state.tasks.filter((task) => task.id !== action.payload);
+      localStorage.setItem('tasks', JSON.stringify(state.tasks));
+    },
   },
 });
 
-export const { addTask } = taskSlice.actions;
+export const { addTask, deleteTask } = taskSlice.actions;
 export default taskSlice.reducer;
