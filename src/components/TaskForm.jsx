@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function TaskForm() {
+export default function TaskForm({ setTasks }) {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -10,6 +10,7 @@ export default function TaskForm() {
   });
 
   const handleChange = (e) => {
+    console.log(e.target.value);
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -19,6 +20,7 @@ export default function TaskForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    setTasks((prev) => [...prev, formData]);
   };
 
   return (

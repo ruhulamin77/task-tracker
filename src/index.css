@@ -42,3 +42,22 @@ form button {
 form button:hover {
   background-color: #00b37a;
 }
+
+.task-card {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.task-card button {
+  margin-right: 10px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.task-card button.edit {
+  background: #28a745;
+}
