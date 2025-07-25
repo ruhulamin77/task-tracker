@@ -1,3 +1,4 @@
+/* =======Common global style starts======== */
 * {
   margin: 0;
   padding: 0;
@@ -8,15 +9,84 @@ body {
   font-family: sans-serif;
   background-color: #e8e9eb;
 }
+/* =======Common global style ends======== */
 
-.container {
-  max-width: 700px;
+/* ==========Header style starts========== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: x-large;
+  font-weight: bold;
+  background: linear-gradient(90deg, #e91616, #018862);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.login-btn {
+  background: #018862;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.login-btn:hover {
+  background: #00a767;
+}
+.logout-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.logout-btn:hover {
+  background: #c30f21;
+}
+
+/* ===========Header style ends=========== */
+
+/* ===========Login form and Task form style starts=========== */
+.login-form {
+  max-width: 400px;
   margin: auto;
   background: white;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-top: 50px;
   border-radius: 10px;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  border-radius: 10px;
+}
+.task-form {
+  max-width: 700px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.task-form h2,
+.login-form h2 {
+  padding-bottom: 10px;
 }
 
 form input,
@@ -43,9 +113,27 @@ form button:hover {
   background-color: #00b37a;
 }
 
+/* ===========Login form and Task form style ends=========== */
+
+/* ===========Task list style starts=========== */
+
 .task-card {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid gray;
   padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.task-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.task-action-area {
+  display: flex;
+  gap: 6px;
 }
 
 .task-card button {
@@ -57,7 +145,29 @@ form button:hover {
   cursor: pointer;
   border-radius: 4px;
 }
+.task-card button:hover {
+  background: #c30f21;
+}
 
 .task-card button.edit {
-  background: #28a745;
+  background: #018862;
 }
+.task-card button.edit:hover {
+  background: #00a767;
+}
+
+.task-list {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.not-task-found {
+  text-align: center;
+  padding: 15px;
+}
+
+/* ===========Task list style ends=========== */

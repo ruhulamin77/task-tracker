@@ -43,7 +43,8 @@ export default function TaskForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="task-form">
+      <h2>Task Form</h2>
       <input
         name="title"
         value={formData.title}
