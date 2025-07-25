@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteTask } from '../features/tasks/taskSlice';
+import { deleteTask, taskToUpdate } from '../features/tasks/taskSlice';
 
-export default function TaskCard({ task, setTaskToUpdate }) {
+export default function TaskCard({ task }) {
   const dispatch = useDispatch();
   const handleDelete = (taskId) => {
     dispatch(deleteTask(taskId));
@@ -15,7 +15,7 @@ export default function TaskCard({ task, setTaskToUpdate }) {
       <p>
         {task.dueDate} | {task.status} | {task.priority}
       </p>
-      <button className="edit" onClick={() => setTaskToUpdate(task)}>
+      <button className="edit" onClick={() => dispatch(taskToUpdate(task))}>
         Edit
       </button>
       <button onClick={() => handleDelete(task.id)}>Delete</button>

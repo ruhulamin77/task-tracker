@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const tasks = localStorage.getItem('tasks');
 const initialState = {
   tasks: JSON.parse(tasks) || [],
+  taskToUpdate: null,
 };
 
 const taskSlice = createSlice({
@@ -17,8 +18,21 @@ const taskSlice = createSlice({
       state.tasks = state.tasks.filter((task) => task.id !== action.payload);
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
     },
+
+    updateTask: (state, action) => {
+      state.tasks = state.tasks.map((task) =>
+        task.id === action.payload.id ? action.payload : task
+      );
+      localStorage.setItem('tasks', JSON.stringify(state.tasks));
+      state.taskToUpdate = null;
+    },
+
+    taskToUpdate: (state, action) => {
+      state.taskToUpdate = action.payload;
+    },
   },
 });
 
-export const { addTask, deleteTask } = taskSlice.actions;
+export const { addTask, deleteTask, updateTask, taskToUpdate } =
+  taskSlice.actions;
 export default taskSlice.reducer;
