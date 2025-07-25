@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTask } from '../features/tasks/taskSlice';
 
-export default function TaskForm({ setTasks }) {
+export default function TaskForm() {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -10,7 +13,6 @@ export default function TaskForm({ setTasks }) {
   });
 
   const handleChange = (e) => {
-    console.log(e.target.value);
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -19,8 +21,7 @@ export default function TaskForm({ setTasks }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-    setTasks((prev) => [...prev, formData]);
+    dispatch(addTask(formData));
   };
 
   return (
