@@ -1,12 +1,68 @@
-# React + Vite
+# Travel Business Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple yet functional Task Tracker App built using React, Redux Toolkit, and vanilla CSS. This project allows users to Create, Read, Update, and Delete tasks easily.
 
-Currently, two official plugins are available:
+The app features a private task list, accessible only after a dummy login (email only). All tasks are stored in the browser’s local storage, ensuring data persists across page reloads.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Live Demo:**  
+👉 [https://travel-business-portal-theta.vercel.app/](https://travel-business-portal-theta.vercel.app/)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Task list is a private route (requires login)
+- Tasks stored in browser localStorage
+- Dummy email-based login (no password required)
+- Built with Redux Toolkit for state management
+- Fully responsive layout using vanilla CSS
+
+## Tech Stack
+
+- [React](https://react.dev/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
+
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/ruhulamin77/task-tracker.git
+cd task-tracker
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### 3. Run the development server
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) to view the app.
+
+## Project Structure
+
+```
+/src
+  /app
+    /store            # redux store
+  /pages
+    /LoginPage        # Auth page
+    /TaskPage         # Task form and task list
+  /components         # Reusable React components
+  /features
+    /auth             # Auth reducers
+    /tasks            # Task reducers
+/public             # Static assets
+```
+
+**Task Tracker** © 2025 — Built with ❤️ by Ruhul Amin.
