@@ -4,6 +4,7 @@ import PrivateRoute from './components/auth/PrivateRoute';
 import Header from './components/common/Header';
 import LoginPage from './pages/LoginPage';
 import TaskPage from './pages/TaskPage';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="*" element={<LoginPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer position="top-center" />
     </BrowserRouter>
