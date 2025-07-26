@@ -5,7 +5,7 @@ A simple yet functional Task Tracker App built using React, Redux Toolkit, and v
 The app features a private task list, accessible only after a dummy login (email only). All tasks are stored in the browser’s local storage, ensuring data persists across page reloads.
 
 **Live Demo:**  
-👉 [https://travel-business-portal-theta.vercel.app/](https://travel-business-portal-theta.vercel.app/)
+👉 [https://task-tracker-ecru-zeta.vercel.app/](https://task-tracker-ecru-zeta.vercel.app/)
 
 ## Features
 
