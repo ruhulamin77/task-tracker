@@ -1,11 +1,19 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteTask, taskToUpdate } from '../features/tasks/taskSlice';
+import { CiCalendarDate } from 'react-icons/ci';
+import { CgSandClock } from 'react-icons/cg';
+import { MdEdit, MdOutlineLowPriority } from 'react-icons/md';
+import { RiDeleteBin6Line } from 'react-icons/ri';
+import { toast } from 'react-toastify';
 
 export default function TaskCard({ task }) {
   const dispatch = useDispatch();
   const handleDelete = (taskId) => {
-    dispatch(deleteTask(taskId));
+    if (window.confirm('Are you sure you want to delete this task?')) {
+      dispatch(deleteTask(taskId));
+      toast.success('Task deleted!');
+    }
   };
 
   const handleEdit = (task) => {
@@ -45,19 +53,27 @@ export default function TaskCard({ task }) {
   return (
     <div className="task-card">
       <div className="task-info">
-        <h3>{task.title}</h3>
-        <p>{task.description}</p>
-        <p>
-          <span style={dueDateStyle}>{task.dueDate}</span>
-          <span style={statusStyle}>{task.status}</span>
-          <span style={priorityStyle}>{task.priority}</span>
+        <h3 className="task-title">{task.title}</h3>
+        <p className="task-description">{task.description}</p>
+        <p className="task-status">
+          <span style={dueDateStyle}>
+            <CiCalendarDate /> {task.dueDate}
+          </span>
+          <span style={statusStyle}>
+            <CgSandClock /> {task.status}
+          </span>
+          <span style={priorityStyle}>
+            <MdOutlineLowPriority /> {task.priority}
+          </span>
         </p>
       </div>
       <div className="task-action-area">
         <button className="edit" onClick={() => handleEdit(task)}>
-          Edit
+          <MdEdit />
         </button>
-        <button onClick={() => handleDelete(task.id)}>Delete</button>
+        <button onClick={() => handleDelete(task.id)}>
+          <RiDeleteBin6Line />
+        </button>
       </div>
     </div>
   );

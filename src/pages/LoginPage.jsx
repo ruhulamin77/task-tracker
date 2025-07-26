@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router';
+import { Navigate, useNavigate } from 'react-router';
 import { login } from '../features/auth/authSlice';
+import { FaUser } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -14,13 +16,23 @@ export default function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(email));
-    navigate('/');
+    if (email) {
+      dispatch(login(email));
+      toast.success('Login successful!');
+      navigate('/');
+    } else {
+      toast.error('Email is required!');
+    }
   };
 
   return (
     <div className="login-form">
-      <h2>Login</h2>
+      <h2>
+        <FaUser /> Login
+      </h2>
+      <div className="login-photo">
+        <img src="/login.png" alt="" />
+      </div>
       <form onSubmit={handleSubmit}>
         <input
           type="email"

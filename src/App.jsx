@@ -3,6 +3,7 @@ import LoginPage from './pages/LoginPage';
 import TaskPage from './pages/TaskPage';
 import PrivateRoute from './components/auth/PrivateRoute';
 import Header from './components/common/Header';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           }
         />
       </Routes>
+      <ToastContainer position="top-center" />
     </BrowserRouter>
   );
 }

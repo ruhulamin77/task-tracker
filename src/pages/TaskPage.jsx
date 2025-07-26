@@ -3,7 +3,7 @@ import TaskList from '../components/TaskList';
 
 export default function TaskPage() {
   return (
-    <div className="container">
+    <div className="task-container">
       <TaskForm />
       <TaskList />
     </div>

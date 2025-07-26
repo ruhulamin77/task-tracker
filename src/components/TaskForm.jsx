@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTask, updateTask } from '../features/tasks/taskSlice';
+import { LuNotebookPen } from 'react-icons/lu';
+import { toast } from 'react-toastify';
 
 export default function TaskForm() {
   const dispatch = useDispatch();
@@ -28,10 +30,13 @@ export default function TaskForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!formData.title) return toast.error('Title is required!');
     if (taskToUpdate) {
       dispatch(updateTask(formData));
+      toast.success('Task updated!');
     } else {
       dispatch(addTask(formData));
+      toast.success('New task added!');
     }
     setFormData({
       title: '',
@@ -44,13 +49,14 @@ export default function TaskForm() {
 
   return (
     <form onSubmit={handleSubmit} className="task-form">
-      <h2>Task Form</h2>
+      <h2>
+        <LuNotebookPen /> Task Tracker
+      </h2>
       <input
         name="title"
         value={formData.title}
         onChange={handleChange}
         placeholder="Title"
-        required
       />
       <textarea
         name="description"
