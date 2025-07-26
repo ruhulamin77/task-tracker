@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addTask, updateTask } from '../features/tasks/taskSlice';
 import { LuNotebookPen } from 'react-icons/lu';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import { addTask, updateTask } from '../features/tasks/taskSlice';
 
 export default function TaskForm() {
   const dispatch = useDispatch();
   const taskToUpdate = useSelector((state) => state.tasks.taskToUpdate);
+
+  // initial task form data
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -15,12 +17,14 @@ export default function TaskForm() {
     priority: 'Medium',
   });
 
+  // re initialize the formData if user want to update the task
   useEffect(() => {
     if (taskToUpdate) {
       setFormData(taskToUpdate);
     }
   }, [taskToUpdate]);
 
+  // on change handler
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -28,6 +32,7 @@ export default function TaskForm() {
     });
   };
 
+  // task add and update handler
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.title) return toast.error('Title is required!');

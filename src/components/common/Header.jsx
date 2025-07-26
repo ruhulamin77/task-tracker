@@ -6,7 +6,6 @@ import { logout } from '../../features/auth/authSlice';
 export default function Header() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
-  console.log(token);
   const handleLogout = () => {
     dispatch(logout());
     toast.success('User logged out!');

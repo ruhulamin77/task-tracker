@@ -1,14 +1,15 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { deleteTask, taskToUpdate } from '../features/tasks/taskSlice';
-import { CiCalendarDate } from 'react-icons/ci';
 import { CgSandClock } from 'react-icons/cg';
+import { CiCalendarDate } from 'react-icons/ci';
 import { MdEdit, MdOutlineLowPriority } from 'react-icons/md';
 import { RiDeleteBin6Line } from 'react-icons/ri';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
+import { deleteTask, taskToUpdate } from '../features/tasks/taskSlice';
 
 export default function TaskCard({ task }) {
   const dispatch = useDispatch();
+
+  // task delete handler with confirmation before delete
   const handleDelete = (taskId) => {
     if (window.confirm('Are you sure you want to delete this task?')) {
       dispatch(deleteTask(taskId));
@@ -16,12 +17,13 @@ export default function TaskCard({ task }) {
     }
   };
 
+  // handle reinitialize the taskForm with the task to update
   const handleEdit = (task) => {
     dispatch(taskToUpdate(task));
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Conditional styles
+  // conditional styles for task status
   const statusStyle = {
     color:
       task.status === 'Completed'

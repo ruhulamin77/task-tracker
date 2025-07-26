@@ -98,7 +98,6 @@ body {
   opacity: 0.5;
   border-radius: 5px;
 }
-
 .task-container {
   max-width: 700px;
   margin: auto;
@@ -117,7 +116,6 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   background-image: url('/todo.jpg');
-  /* backdrop-filter: blur(6px); */
 }
 
 .task-form h2,
@@ -126,6 +124,17 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.email-label {
+  display: block;
+  margin-bottom: 5px;
+}
+.test-email {
+  margin-bottom: 20px;
+}
+.test-email span {
+  color: #00a767;
 }
 
 form input,
